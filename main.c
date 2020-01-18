@@ -180,6 +180,8 @@ void print_board(t_state state)
 }
 
 
+
+
 void	next_block(t_state s, t_block *block)
 {
 
@@ -188,14 +190,21 @@ void	next_block(t_state s, t_block *block)
 	if (!block)
 		return ;
 
-	if (!block->fixed_value)
+	if (block->fixed_value)
 	{
-		block->value = (block->value == EMPTY) ? 1 : block->value++;
 		next_block(s, block->next);
+	}
+	
+	block->value = (block->value == EMPTY) ? 1 : block->value++;
+	
+	if (valid_position(s.board, block))
+	{
+		next_block(s, block->next);	
 	}
 	else
 	{
-		next_block(s, block->next);	
+		block->value = EMPTY;
+		next_block(s, block->prev);	
 	}
 }
 
