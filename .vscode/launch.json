@@ -1,0 +1,21 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": "Sudoku",
+            "type": "cppdbg",
+            "request": "launch",
+            "program": "${workspaceFolder}/sudoku",
+            "args": ["9...7....", "2...9..53", ".6..124..", "84...1.9.", "5.....8..", ".31..4...", "..37..68.", ".9..5.741", "47......."],
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}",
+            "environment": [],
+            "externalConsole": false,
+            "MIMode": "lldb",
+            "preLaunchTask": "build"
+        }
+    ]
+}
