@@ -162,17 +162,21 @@ int	valid_position(t_block *board, t_block *block)
 
 void print_board(t_state state)
 {
-	printf("\e[1;1H\e[2J");
-	sleep(1000);
-
 	int row;
 
-	row = state.board->y;
+	printf("\e[2J\e[H");
+	row = 0;
 	while (state.board)
 	{
-
+		if (state.board->y > row)
+		{
+			row = state.board->y;
+			printf("\n");
+		}
+		printf("%d ", (state.board->value < 0) ? 0 : state.board->value);
 		state.board = state.board->next;
 	}
+	usleep(90000);
 }
 
 
